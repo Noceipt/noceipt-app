@@ -1,8 +1,12 @@
+import { Box, Heading, useColorMode } from "@chakra-ui/react";
+import { IconButton } from '@chakra-ui/button'
 import Head from "next/head";
 
 export default function Home() {
+
+  const { colorMode, toggleColorMode } = useColorMode()
+
   return (
-    /* The default code that is generated when you create a new Next.js project. */
     <div>
       <Head>
         <title>Noceipt</title>
@@ -11,11 +15,17 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>H1</h1>
-        Main
+      <Box display="flex" height={'50vh'} flexDirection={'column'}>
+        <Heading>{'Noceipt'}</Heading>
+        <IconButton mt={4} aria-label="Toggle Mode" onClick={toggleColorMode}>
+          { colorMode === 'light' ? <h1>{'Dark Mode'}</h1> : <h5>{'Light Mode'}</h5> }
+        </IconButton>
+      </Box>
+        
+        
       </main>
 
-      <footer>Footer</footer>
+      <footer>{'Footer'}</footer>
     </div>
   );
 }
