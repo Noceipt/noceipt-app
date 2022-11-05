@@ -5,6 +5,8 @@ import "../styles/globals.scss";
 // 1. Import the extendTheme function
 import { extendTheme } from "@chakra-ui/react";
 import { AppProps } from "next/app";
+import { AuthenticationProvider } from "../providers/AuthenticationProvider";
+import { ReceiptProvider } from "../providers/ReceiptsProvider";
 
 // 2. Extend the theme to include custom colors, fonts, etc
 const colors = {
@@ -20,9 +22,13 @@ const theme = extendTheme({ colors });
 // 3. Pass the `theme` prop to the `ChakraProvider`
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <AuthenticationProvider>
+      <ReceiptProvider>
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+      <ReceiptProvider />
+    </AuthenticationProvider>
   );
 }
 
