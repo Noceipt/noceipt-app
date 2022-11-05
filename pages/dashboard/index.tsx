@@ -1,5 +1,5 @@
 import Page from "../../templates/Page";
-import styles from "../../styles/Home.module.css";
+import styles from "../../styles/Dashboard.module.scss";
 
 const Dashboard = () => {
 	return (
