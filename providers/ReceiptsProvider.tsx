@@ -8,7 +8,7 @@ interface IReceiptContext {
 
 const ReceiptContext = createContext<IReceiptContext>({
     receipts: [],
-    setReceipts: () => {}
+    setReceipts: () => {},
 });
 
 export const ReceiptProvider = (props: PropsWithChildren<IReceiptContext>) => {
@@ -19,6 +19,6 @@ export const ReceiptProvider = (props: PropsWithChildren<IReceiptContext>) => {
             {props.children}
         </ReceiptContext.Provider>
     );
-});
+};
 
 export const useReceiptsContext = () => useContext(ReceiptContext);
