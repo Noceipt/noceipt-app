@@ -15,7 +15,7 @@ const Dashboard = () => {
 	return (
 		<Page>
 			<h1 className={styles.Dashboard}>Dashboard</h1>
-			<Search callback={searchFilterCallback}/>
+			<Search />
 		</Page>
 	);
 };
