@@ -2,15 +2,16 @@ import { Flex, Heading, SlideFade, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
-import { ICompanyData, ILineItem, IReceipt } from "../../types/ReceiptModel";
+import { ICompanyData, IReceipt } from "../../types/ReceiptModel";
+import Robertos from "../../assets/Robertos.jpg";
 
 interface ICeiptListItemProps {
   wait: number;
-  companyLogo: ICompanyData["companyLogo"];
-  companyName: ICompanyData["companyName"];
+  companyLogo: ICompanyData["logo"];
+  companyName: ICompanyData["name"];
   calculatedNumberOfItems: number;
   total: IReceipt["total"];
-  orderedTime: IReceipt["orderedTime"];
+  orderedTime: IReceipt["orderTime"];
 }
 
 const determineNumOfItems = (numOfItems: number = 0) => {
@@ -26,7 +27,7 @@ const CeiptListItem = ({
   companyName,
   calculatedNumberOfItems,
   total,
-  orderedTime
+  orderedTime,
 }: ICeiptListItemProps) => {
   const [open, setOpen] = useState<boolean>(false);
 
@@ -42,7 +43,7 @@ const CeiptListItem = ({
     <SlideFade offsetY="16px" in={open}>
       <Flex flexGrow={1} marginY="8px">
         {companyLogo ? (
-          <Image src={companyLogo} width={40} height={40} alt="icon" />
+          <Image src={Robertos} width={40} height={40} alt="icon" />
         ) : (
           <FiShoppingCart size={40} />
         )}
@@ -52,7 +53,11 @@ const CeiptListItem = ({
               {companyName}
             </Heading>
             <Text fontSize="subtext" color="subtext">
-              {orderedTime}
+              {new Date(orderedTime as string).toLocaleDateString("en-us", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
             </Text>
           </Flex>
           <Flex direction="column" justifyContent="center">
