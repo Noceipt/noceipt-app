@@ -1,4 +1,3 @@
-//import styles from './CeiptList.module.scss';
 import { Divider, Flex } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import CeiptListItem from "../CeiptListItem";
