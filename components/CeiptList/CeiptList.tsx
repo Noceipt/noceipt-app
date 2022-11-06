@@ -1,10 +1,7 @@
 import { Divider, Flex } from "@chakra-ui/react";
+import { useReceiptsContext } from "../../providers/ReceiptsProvider";
 import { ILineItem, IReceipt } from "../../types/ReceiptModel";
 import CeiptListItem from "../CeiptListItem";
-
-interface ICeiptListProps {
-  receiptList: IReceipt[];
-}
 
 const resolveTotalNumberOfItems = (items: ILineItem[] = []) =>
   items.reduce((acc, curr) => {
@@ -14,10 +11,11 @@ const resolveTotalNumberOfItems = (items: ILineItem[] = []) =>
     return acc;
   }, 0);
 
-const CeiptList = ({ receiptList }: ICeiptListProps) => {
+const CeiptList = () => {
+  const { filteredReceipts } = useReceiptsContext();
   return (
     <Flex direction="column">
-      {receiptList.map(({ company, orderedTime, items, total }, index) => {
+      {filteredReceipts && filteredReceipts.map(({ company, orderedTime, items, total }, index) => {
         return (
           <>
             {index > 0 && <Divider />}

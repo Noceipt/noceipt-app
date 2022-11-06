@@ -40,13 +40,13 @@ const CeiptListItem = ({
 
   return (
     <SlideFade offsetY="16px" in={open}>
-      <Flex w={{ md: "50vw", base: "100vw" }}>
+      <Flex flexGrow={1} marginY="8px">
         {companyLogo ? (
           <Image src={companyLogo} width={40} height={40} alt="icon" />
         ) : (
           <FiShoppingCart size={40} />
         )}
-        <Flex justifyContent="space-between" paddingLeft="4px" flexGrow="1">
+        <Flex justifyContent="space-between" paddingLeft="8px" flexGrow="1">
           <Flex direction="column" justifyContent="center">
             <Heading fontSize="listItem" as="h6" paddingBottom="4px">
               {companyName}
