@@ -12,13 +12,10 @@ const Dashboard = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log(isLoggedIn)
-    if (isLoggedIn.length > 0) {
-      getReceipts(isLoggedIn).then((data: any) => {
+    if (isLoggedIn!.length > 0) {
+      getReceipts(isLoggedIn!).then((data: any) => {
         console.log(data.data)
         setReceipts!(data.data)});
-    } else {
-      console.log("nope")
     }
   }, [isLoggedIn, setReceipts]);
 
