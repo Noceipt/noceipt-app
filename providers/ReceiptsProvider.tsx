@@ -15,20 +15,9 @@ const ReceiptContext = createContext<IReceiptContext>({
   filterReceiptsCallback: () => {},
 });
 
-const sampleReceipt: IReceipt = {
-  company: { companyName: "Boom" },
-  orderedTime: "some time",
-  items: [{ numberOfItems: 1 }, { numberOfItems: 2 }, { numberOfItems: 3 }],
-  total: 4000,
-};
-
 export const ReceiptProvider = (props: PropsWithChildren<IReceiptContext>) => {
   const [receipts, setReceipts] = useState<IReceipt[]>([]);
-  const [filteredReceipts, setFilteredReceipts] = useState<IReceipt[]>([
-    sampleReceipt,
-    sampleReceipt,
-    sampleReceipt,
-  ]);
+  const [filteredReceipts, setFilteredReceipts] = useState<IReceipt[]>([]);
 
   const searchItems = (obj: Object, text: string) => {
     const entries = Object.entries(obj);

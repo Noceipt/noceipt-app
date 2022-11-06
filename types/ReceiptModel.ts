@@ -8,23 +8,26 @@ export interface IReceipt {
 	tax?: number;
 	total?: number;
 	memos?: string[];
+	notes?: string[];
+	_id: string;
 }
 
 export interface ICompanyData {
-	companyName?: string;
-	companyLogo?: string;
-	companyAddress?: string;
-	companyWebsite?: string;
+	name?: string;
+	logo?: string;
+	address?: string;
+	website?: string;
 }
 
 export interface IPaymentData {
 	cardNumber?: string;
 	cardType?: 'VISA' | 'MASTERCARD' | 'AMEX' | 'DISCOVER';
-	authorizationNumber?: string;
+	authNumber?: string;
 }
 
 export interface ILineItem {
-	numberOfItems?: number;
-	itemName?: string;
-	itemValue?: string;
+	numOfItems?: number;
+	name?: string;
+	value?: number;
+	_id: string;
 }

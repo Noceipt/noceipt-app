@@ -12,7 +12,7 @@ const LoginComponent = ({ classname = "" }: ILoginComponentProps) => {
   const [email, setEmail] = useState<string>("");
   const [pwd, setPwd] = useState<string>("");
   const { user, setUser } = useUser();
-  const { setLoggedIn } = useAuthenticationContext();
+  const { setLoggedIn, error, setError } = useAuthenticationContext();
 
   const handleEmailChange = (e: FormEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -25,17 +25,22 @@ const LoginComponent = ({ classname = "" }: ILoginComponentProps) => {
   };
 
   const handleLogin = async () => {
-    getLogin({ email, password: pwd }).then((res) => {
-      setUser!({
-        ...user,
-        email: res.data.email,
+    getLogin({ email, password: pwd })
+      .then((res) => {
+        setUser!({
+          ...user,
+          email: res.data.email,
+        });
+        setLoggedIn(res.data.token);
+      })
+      .catch((error) => {
+        setError(error.message);
       });
-      setLoggedIn(res.data.token)
-    });
   };
 
   return (
     <>
+      {error.length > 0 && error}
       <Input
         className={styles.loginUsername}
         placeholder="Email"

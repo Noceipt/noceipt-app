@@ -2,12 +2,12 @@ import { Flex, Heading, SlideFade, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
-import { ICompanyData, ILineItem, IReceipt } from "../../types/ReceiptModel";
+import { ICompanyData, IReceipt } from "../../types/ReceiptModel";
 
 interface ICeiptListItemProps {
   wait: number;
-  companyLogo: ICompanyData["companyLogo"];
-  companyName: ICompanyData["companyName"];
+  companyLogo: ICompanyData["logo"];
+  companyName: ICompanyData["name"];
   calculatedNumberOfItems: number;
   total: IReceipt["total"];
   orderedTime: IReceipt["orderedTime"];
