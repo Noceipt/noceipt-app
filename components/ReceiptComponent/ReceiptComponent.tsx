@@ -2,6 +2,7 @@ import styles from './ReceiptComponent.module.scss';
 import { IReceipt } from '../../types/ReceiptModel';
 import { Box, Divider, Grid, GridItem, Heading } from '@chakra-ui/react';
 import { FiTarget } from 'react-icons/fi';
+import { Fragment } from 'react';
 
 interface IReceiptComponentProps {
     classname?: string;
@@ -102,11 +103,11 @@ const ReceiptComponent = ({
                         {receipt.items && receipt.items.map((item) => {
                             const keyPrefix = item.itemName!.replace(' ', '_');
                             return (
-                                <>
-                                    <GridItem key={keyPrefix + '_qty'} colSpan={1}>{item.numberOfItems}</GridItem>
-                                    <GridItem key={keyPrefix + '_itm'} colSpan={3}>{item.itemName}</GridItem>
-                                    <GridItem key={keyPrefix + '_amt'} textAlign={'end'} colSpan={1}>{item.itemValue}</GridItem>
-                                </>
+                                <Fragment key={keyPrefix}>
+                                    <GridItem colSpan={1}>{item.numberOfItems}</GridItem>
+                                    <GridItem colSpan={3}>{item.itemName}</GridItem>
+                                    <GridItem textAlign={'end'} colSpan={1}>{item.itemValue}</GridItem>
+                                </Fragment>
                             );
                         })}
                 </Grid>
