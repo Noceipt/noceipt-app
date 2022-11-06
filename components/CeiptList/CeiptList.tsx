@@ -28,7 +28,7 @@ const CeiptList = ({ receiptList }: ICeiptListProps) => {
               calculatedNumberOfItems={resolveTotalNumberOfItems(items)}
               total={total}
               wait={index}
-              key={_id}
+              key={_id + index}
             />
           </>
         );

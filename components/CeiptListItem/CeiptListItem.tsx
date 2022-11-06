@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { ICompanyData, IReceipt } from "../../types/ReceiptModel";
+import Robertos from '../../assets/Robertos.jpg';
 
 interface ICeiptListItemProps {
   wait: number;
@@ -42,7 +43,7 @@ const CeiptListItem = ({
     <SlideFade offsetY="16px" in={open}>
       <Flex flexGrow={1} marginY="8px">
         {companyLogo ? (
-          <Image src={companyLogo} width={40} height={40} alt="icon" />
+          <Image src={Robertos} width={40} height={40} alt="icon" />
         ) : (
           <FiShoppingCart size={40} />
         )}
