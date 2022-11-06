@@ -1,9 +1,14 @@
-import { useContext, createContext, PropsWithChildren, useState } from "react";
+import { useContext, createContext, PropsWithChildren, useState, Dispatch, SetStateAction } from "react";
 
 export interface IUser {
 	email?: string;
 	avatar?: string;
 	theme?: "light" | "dark";
+}
+
+interface IUserContext {
+	user?: IUser;
+	setUser?: Dispatch<SetStateAction<IUser>>;
 }
 
 const DefaultUser: IUser = {
@@ -12,11 +17,18 @@ const DefaultUser: IUser = {
 	theme: "dark",
 };
 
-const UserContext = createContext<IUser>(DefaultUser);
+const UserContext = createContext<IUserContext>({
+	user: DefaultUser,
+	setUser: () => {}
+});
 
 const UserProvider = ({ children }: PropsWithChildren) => {
-	const [user] = useState<IUser>(DefaultUser);
-	return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+	const [user, setUser] = useState<IUser>(DefaultUser);
+	return (
+		<UserContext.Provider value={{ user, setUser }}>
+			{children}
+		</UserContext.Provider>
+	);
 };
 
 export const useUser = () => useContext(UserContext);

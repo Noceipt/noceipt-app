@@ -2,6 +2,8 @@ import styles from './LoginComponent.module.scss';
 import { Button, Input } from '@chakra-ui/react';
 import { FormEvent, useState } from 'react';
 import { useAuthenticationContext } from '../../providers/AuthenticationProvider';
+import { useUser } from '../../providers/UserProvider';
+import { server } from '../../utils/server';
 
 interface ILoginComponentProps {
     classname?: string;
@@ -9,13 +11,14 @@ interface ILoginComponentProps {
 const LoginComponent = ({
     classname = '',
 }: ILoginComponentProps) => {
-    const [username, setUsername] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
     const [pwd, setPwd] = useState<string>('');
     const { setToken } = useAuthenticationContext();
+    const { user, setUser } = useUser();
 
-    const handleUsernameChange = (e: FormEvent<HTMLInputElement>) => {
+    const handleEmailChange = (e: FormEvent<HTMLInputElement>) => {
         e.preventDefault();
-        setUsername(e.currentTarget.value);
+        setEmail(e.currentTarget.value);
     }
 
     const handlePwdChange = (e: FormEvent<HTMLInputElement>) => {
@@ -24,34 +27,27 @@ const LoginComponent = ({
     }
 
     const handleLogin = async () => {
-        fetch(
-            '/vi/auth', 
-            {
-                method: 'POST',
-                headers: new Headers({
-                    'content-type': 'application/json'
-                }),
-                body: JSON.stringify({
-                    'email': username,
-                    'password': pwd,
-                })
-            }
-        ).then((res) => res.json())
-        .then((data) => {
-            setToken(data.setToken);
-            // todo: data.email, data.id
-            // todo: set user
+        server.post('auth/login', {
+            email,
+            password: pwd,
+        }).then((res) => {
+            console.log(res.data);
+            setToken!(res.data.setToken);
+            setUser!({
+                ...user,
+                email: res.data.email
+            })
         })
     }
     
     return (
         <>
             <Input className={styles.loginUsername}
-                placeholder='Username' 
+                placeholder='Email' 
                 size='lg' 
                 type='text' 
-                onChange={handleUsernameChange}
-                value={username}/>
+                onChange={handleEmailChange}
+                value={email}/>
 
             <Input className={styles.loginPwd}
                 placeholder='Password' 
@@ -69,3 +65,7 @@ const LoginComponent = ({
     );
 };
 export default LoginComponent;
+
+function axios(arg0: string, arg1: { method: string; headers: Headers; body: string; }) {
+    throw new Error('Function not implemented.');
+}
