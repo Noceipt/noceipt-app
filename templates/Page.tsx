@@ -1,13 +1,17 @@
-import { PropsWithChildren } from "react";
+import { ReactNode } from "react";
 import Head from "next/head";
 import styles from "../styles/PageTemplate.module.scss";
+import Navbar from "../components/Navbar";
+import { Box, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import Search from "../components/Search";
 
 export interface IPageProps {
-	children: PropsWithChildren;
+	children: ReactNode;
 	title?: string;
 }
 
 const Page = ({ children, title }: IPageProps) => {
+	const bgColor = useColorModeValue("white", "#111111");
 	return (
 		<>
 			<Head>
@@ -20,8 +24,18 @@ const Page = ({ children, title }: IPageProps) => {
 			</Head>
 			<div className={styles.PageTemplate}>
 				<>
-					<header>Header bro</header>
-					{children}
+					<Navbar />
+					<Box
+						padding={4}
+						borderTopLeftRadius={32}
+						borderTopRightRadius={32}
+						marginTop={-8}
+						bgColor={bgColor}
+						as="main"
+					>
+						<Search />
+						{children}
+					</Box>
 					<footer>Footer bro</footer>
 				</>
 			</div>
