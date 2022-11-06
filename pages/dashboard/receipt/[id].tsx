@@ -1,8 +1,9 @@
 import { IReceipt } from "../../../types/ReceiptModel";
 import styles from "../../../styles/Receipt.module.scss";
+import ReceiptComponent from "../../../components/ReceiptComponent";
 
 const Receipt = (receipt: IReceipt) => {
-	return <h1 className={styles.Receipt}>{receipt.company?.companyName}</h1>;
+	return <ReceiptComponent receipt={receipt} />;
 };
 
 export default Receipt;

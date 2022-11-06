@@ -1,8 +1,6 @@
-import { Box } from "@chakra-ui/react";
-
 import Head from "next/head";
 import Page from "../templates/Page";
-import ReceiptComponent from "../components/ReceiptComponent";
+import LoginComponent from "../components/LoginComponent";
 
 export default function Home() {
 	return (
@@ -16,7 +14,7 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Page>
-				<ReceiptComponent />
+				<LoginComponent />
 			</Page>
 		</>
 	);
