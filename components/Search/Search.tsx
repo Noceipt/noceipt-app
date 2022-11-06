@@ -26,7 +26,7 @@ const Search = ({
     }
 
     useCallback(() => {
-        filterReceiptsCallback(searchInput);
+        filterReceiptsCallback && filterReceiptsCallback(searchInput);
     }, [searchInput]);
 
     return (

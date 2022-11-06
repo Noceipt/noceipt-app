@@ -4,8 +4,8 @@ import { IReceipt } from "../types/ReceiptModel";
 interface IReceiptContext {
 	receipts?: IReceipt[];
 	filteredReceipts?: IReceipt[];
-	setReceipts: (prevState: []) => void;
-	filterReceiptsCallback: (searchInput: string) => void;
+	setReceipts?: (prevState: []) => void;
+	filterReceiptsCallback?: (searchInput: string) => void;
 }
 
 const ReceiptContext = createContext<IReceiptContext>({
