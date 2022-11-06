@@ -13,6 +13,7 @@
     "generate:test": "node ./tooling/generateTest.mjs"
   },
   "dependencies": {
+    "@chakra-ui/theme-tools": "^2.0.12",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",

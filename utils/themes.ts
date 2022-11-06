@@ -1,24 +1,22 @@
-import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
+import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
 
-const config : ThemeConfig = {
+const config: ThemeConfig = {
   initialColorMode: "light",
   useSystemColorMode: true,
-}
+};
 
 const semanticTokens = {
-  font: {
-    size: {
-      sm: "12px",
-    },
-  },
-  color: {
+  colors: {
     green: {
-      default: "#C0EEA4",
-      _dark: "#7AA361",
+      default: "rgb(192, 238, 164)",
+      _dark: "rgb(122, 163, 97)",
     },
   },
 };
 
-const theme = extendTheme({ config, semanticTokens });
+const theme = extendTheme({
+  config,
+  semanticTokens,
+});
 
 export default theme;
