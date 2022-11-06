@@ -1,24 +1,39 @@
 import { Divider, Flex } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import { useReceiptsContext } from "../../providers/ReceiptsProvider";
+import { ILineItem, IReceipt } from "../../types/ReceiptModel";
 import CeiptListItem from "../CeiptListItem";
 
 interface ICeiptListProps {
-  classname?: string;
-  children?: ReactNode;
+  receiptList: IReceipt[]
 }
-const CeiptList = ({ classname = "", children }: ICeiptListProps) => {
+
+const resolveTotalNumberOfItems = (items: ILineItem[] = []) =>
+  items.reduce((acc, curr) => {
+    if (curr) {
+      return (curr.numberOfItems as number) + acc;
+    }
+    return acc;
+  }, 0);
+
+const CeiptList = ({ receiptList }: ICeiptListProps) => {
+  const { filteredReceipts } = useReceiptsContext();
   return (
     <Flex direction="column">
-      {[1, 2, 3, 4, 5].map((elem, index) => {
-        if (index > 0) {
-          return (
-            <>
-              <Divider />
-              <CeiptListItem wait={index} key={elem} />
-            </>
-          );
-        }
-        return <CeiptListItem wait={index} key={elem} />;
+      {receiptList.map(({ company, orderedTime, items, total }, index) => {
+        return (
+          <>
+            {index > 0 && <Divider />}
+            <CeiptListItem
+              companyLogo={company?.companyLogo as string}
+              companyName={company?.companyName as string}
+              orderedTime={orderedTime}
+              calculatedNumberOfItems={resolveTotalNumberOfItems(items)}
+              total={total}
+              wait={index}
+              key={orderedTime}
+            />
+          </>
+        );
       })}
     </Flex>
   );

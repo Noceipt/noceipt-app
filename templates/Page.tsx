@@ -32,6 +32,7 @@ const Page = ({ children, title }: IPageProps) => {
 						bgColor={bgColor}
 						as="main"
 						justifyContent="flex-start"
+						minHeight="100vh"
 					>
 						{children}
 					</Box>

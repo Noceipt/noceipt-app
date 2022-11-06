@@ -1,23 +1,21 @@
 import Page from "../../templates/Page";
-import styles from "../../styles/Dashboard.module.scss";
 import Search from "../../components/Search";
+import CeiptList from "../../components/CeiptList";
+import { useReceiptsContext } from "../../providers/ReceiptsProvider";
 import { useState } from "react";
 
 const Dashboard = () => {
+  const { receipts, filteredReceipts } = useReceiptsContext();
+  const [isActive, setIsActive] = useState<boolean>(false);
 
-	const [receipts, setReceipts] = useState(false);
-
-	const searchFilterCallback = (searchInput: string) => {
-		// todo: filter receipts by text search
-		// use provider for receipts
-	}
-
-	return (
-		<Page>
-			<h1 className={styles.Dashboard}>Dashboard</h1>
-			<Search />
-		</Page>
-	);
+  return (
+    <Page>
+      <Search isActive={isActive} setIsActive={setIsActive} />
+      <CeiptList
+        receiptList={isActive ? filteredReceipts || [] : receipts || []}
+      />
+    </Page>
+  );
 };
 
 export default Dashboard;
