@@ -6,6 +6,11 @@ const config: ThemeConfig = {
 };
 
 const semanticTokens = {
+  font: {
+    size: {
+      sm: "12px",
+    },
+  },
   colors: {
     green: {
       default: "rgb(192, 238, 164)",
