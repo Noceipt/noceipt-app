@@ -1,6 +1,8 @@
 import "../styles/globals.scss";
 import { AppProps } from "next/app";
-import { ChakraProvider } from "@chakra-ui/react"
+import { AuthenticationProvider } from "../providers/AuthenticationProvider";
+import { ReceiptProvider } from "../providers/ReceiptsProvider";
+import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../utils/themes";
 
 function MyApp({ Component, pageProps }: AppProps) {
