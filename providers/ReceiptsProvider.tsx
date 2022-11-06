@@ -4,8 +4,8 @@ import { IReceipt } from "../types/ReceiptModel";
 interface IReceiptContext {
 	receipts?: IReceipt[];
 	filteredReceipts?: IReceipt[];
-	setReceipts?: (prevState: []) => void;
-	filterReceiptsCallback?: (searchInput: string) => void;
+	setReceipts: (prevState: []) => void;
+	filterReceiptsCallback: (searchInput: string) => void;
 }
 
 const ReceiptContext = createContext<IReceiptContext>({
@@ -31,7 +31,7 @@ export const ReceiptProvider = (props: PropsWithChildren<IReceiptContext>) => {
 		if (!searchInput) {
 			setFilteredReceipts(receipts);
 		}
-		
+
 		const filtered = receipts.filter((receipt) => {
 			const entries = Object.entries(receipt);
 			entries.some((entry) => {
