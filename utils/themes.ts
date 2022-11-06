@@ -11,7 +11,7 @@ const semanticTokens = {
       sm: "12px",
     },
   },
-  color: {
+  colors: {
     green: {
       default: "#C0EEA4",
       _dark: "#7AA361",
