@@ -3,7 +3,7 @@ import { Button, Input } from '@chakra-ui/react';
 import { FormEvent, useState } from 'react';
 import { useAuthenticationContext } from '../../providers/AuthenticationProvider';
 import { useUser } from '../../providers/UserProvider';
-import { server } from '../../utils/server';
+import { server } from '../../utils/lib/server';
 
 interface ILoginComponentProps {
     classname?: string;
