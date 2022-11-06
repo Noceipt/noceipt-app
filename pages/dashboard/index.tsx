@@ -1,11 +1,11 @@
 import Page from "../../templates/Page";
 import styles from "../../styles/Dashboard.module.scss";
 import Search from "../../components/Search";
-import { useState } from "react";
+import CeiptList from "../../components/CeiptList";
 
 const Dashboard = () => {
 
-	const [receipts, setReceipts] = useState(false);
+	const receipts = [];
 
 	const searchFilterCallback = (searchInput: string) => {
 		// todo: filter receipts by text search
@@ -16,6 +16,7 @@ const Dashboard = () => {
 		<Page>
 			<h1 className={styles.Dashboard}>Dashboard</h1>
 			<Search callback={searchFilterCallback}/>
+			<CeiptList receiptList={receipts}/>
 		</Page>
 	);
 };
