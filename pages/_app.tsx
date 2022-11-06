@@ -9,9 +9,13 @@ import SidenavProvider from "../providers/SidenavProvider";
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<ChakraProvider theme={theme}>
-			<SidenavProvider>
-				<Component {...pageProps} />
-			</SidenavProvider>
+			{/* <AuthenticationProvider > */}
+				<ReceiptProvider>
+					<SidenavProvider>
+						<Component {...pageProps} />
+					</SidenavProvider>
+				</ReceiptProvider>
+			{/* </AuthenticationProvider> */}
 		</ChakraProvider>
 	);
 }
