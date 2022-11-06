@@ -33,7 +33,7 @@ const SidenavProvider = ({ children }: PropsWithChildren) => {
 					minHeight: "100%",
 					position: "absolute",
 					transition: "ease-in-out 0.15s left",
-					left: open ? "-240px" : "0vw",
+					left: open ? "-300px" : "0vw",
 					boxShadow: "0 0 -5px 10px rgba(0,0,0, 0.5)",
 					overflow: open ? "hidden" : "auto",
 				}}
