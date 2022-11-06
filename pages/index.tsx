@@ -1,12 +1,10 @@
-import { Box, Heading, useColorMode } from "@chakra-ui/react";
-import { IconButton } from "@chakra-ui/button";
+import { Box } from "@chakra-ui/react";
+
 import Head from "next/head";
 import Page from "../templates/Page";
-import Search from "../components/Search";
+import ReceiptComponent from "../components/ReceiptComponent";
 
 export default function Home() {
-	const { colorMode, toggleColorMode } = useColorMode();
-
 	return (
 		<>
 			<Head>
@@ -24,6 +22,7 @@ export default function Home() {
 					height={"50vh"}
 					flexDirection={"column"}
 				></Box>
+				<ReceiptComponent />
 			</Page>
 		</>
 	);
