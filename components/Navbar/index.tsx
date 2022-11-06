@@ -19,7 +19,7 @@ const Navbar = () => {
 				<Link href="/">
 					<Image src={image} alt="Noceipt Logo" />
 				</Link>
-				{isLoggedIn.length > 0 &&
+				{isLoggedIn!.length > 0 &&
 				<button onClick={() => setOpen(!open)}>
 					{open ? (
 						<FiChevronRight size={22} />

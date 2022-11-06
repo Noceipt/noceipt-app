@@ -1,10 +1,10 @@
 import { createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useState } from 'react';
 
 interface IAuthenticationContext {
-  isLoggedIn: string;
-  setLoggedIn: Dispatch<SetStateAction<string>>;
-  error: string;
-  setError: Dispatch<SetStateAction<string>>;
+  isLoggedIn?: string;
+  setLoggedIn?: Dispatch<SetStateAction<string>>;
+  error?: string;
+  setError?: Dispatch<SetStateAction<string>>;
 };
 
 const AuthenticationContext = createContext<IAuthenticationContext>({

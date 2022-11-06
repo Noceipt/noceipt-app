@@ -33,22 +33,22 @@ const LoginComponent = ({ classname = "" }: ILoginComponentProps) => {
           ...user,
           email: res.data.email,
         });
-        setLoggedIn(res.data.token);
+        setLoggedIn!(res.data.token);
       })
       .catch((error) => {
-        setError(error.message);
+        setError!(error.message);
       });
   };
 
   useEffect(() => {
-    if (isLoggedIn.length > 0) {
+    if (isLoggedIn!.length > 0) {
       navigate.push("/dashboard")
     }
   }, [isLoggedIn, navigate])
 
   return (
     <>
-      {error.length > 0 && error}
+      {error!.length > 0 && error}
       <Input
         className={styles.loginUsername}
         placeholder="Email"

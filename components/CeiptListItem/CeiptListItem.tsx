@@ -39,15 +39,6 @@ const CeiptListItem = ({
     return () => clearTimeout(timeout);
   }, [wait]);
 
-  const please = new Date(orderedTime as string).toLocaleDateString("en-us", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-  console.log(orderedTime)
-  console.log(please)
-
   return (
     <SlideFade offsetY="16px" in={open}>
       <Flex flexGrow={1} marginY="8px">
@@ -62,7 +53,11 @@ const CeiptListItem = ({
               {companyName}
             </Heading>
             <Text fontSize="subtext" color="subtext">
-              {orderedTime}
+              {new Date(orderedTime as string).toLocaleDateString("en-us", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
             </Text>
           </Flex>
           <Flex direction="column" justifyContent="center">
