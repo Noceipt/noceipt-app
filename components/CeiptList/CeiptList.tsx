@@ -17,14 +17,14 @@ const resolveTotalNumberOfItems = (items: ILineItem[] = []) =>
 const CeiptList = ({ receiptList }: ICeiptListProps) => {
   return (
     <Flex direction="column">
-      {receiptList.map(({ _id, company, orderedTime, items, total }, index) => {
+      {receiptList.map(({ _id, company, orderTime, items, total }, index) => {
         return (
           <>
             {index > 0 && <Divider />}
             <CeiptListItem
               companyLogo={company?.logo as string}
               companyName={company?.name as string}
-              orderedTime={orderedTime}
+              orderedTime={orderTime}
               calculatedNumberOfItems={resolveTotalNumberOfItems(items)}
               total={total}
               wait={index}

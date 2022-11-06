@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { ICompanyData, IReceipt } from "../../types/ReceiptModel";
-import Robertos from '../../assets/Robertos.jpg';
+import Robertos from "../../assets/Robertos.jpg";
 
 interface ICeiptListItemProps {
   wait: number;
@@ -11,7 +11,7 @@ interface ICeiptListItemProps {
   companyName: ICompanyData["name"];
   calculatedNumberOfItems: number;
   total: IReceipt["total"];
-  orderedTime: IReceipt["orderedTime"];
+  orderedTime: IReceipt["orderTime"];
 }
 
 const determineNumOfItems = (numOfItems: number = 0) => {
@@ -27,7 +27,7 @@ const CeiptListItem = ({
   companyName,
   calculatedNumberOfItems,
   total,
-  orderedTime
+  orderedTime,
 }: ICeiptListItemProps) => {
   const [open, setOpen] = useState<boolean>(false);
 
@@ -38,6 +38,15 @@ const CeiptListItem = ({
 
     return () => clearTimeout(timeout);
   }, [wait]);
+
+  const please = new Date(orderedTime as string).toLocaleDateString("en-us", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  console.log(orderedTime)
+  console.log(please)
 
   return (
     <SlideFade offsetY="16px" in={open}>

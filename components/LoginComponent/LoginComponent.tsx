@@ -1,9 +1,10 @@
 import styles from "./LoginComponent.module.scss";
 import { Button, Input } from "@chakra-ui/react";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useUser } from "../../providers/UserProvider";
 import { getLogin } from "../../utils/lib/receipts";
 import { useAuthenticationContext } from "../../providers/AuthenticationProvider";
+import { useRouter } from "next/router";
 
 interface ILoginComponentProps {
   classname?: string;
@@ -12,7 +13,8 @@ const LoginComponent = ({ classname = "" }: ILoginComponentProps) => {
   const [email, setEmail] = useState<string>("");
   const [pwd, setPwd] = useState<string>("");
   const { user, setUser } = useUser();
-  const { setLoggedIn, error, setError } = useAuthenticationContext();
+  const { isLoggedIn, setLoggedIn, error, setError } = useAuthenticationContext();
+  const navigate = useRouter();
 
   const handleEmailChange = (e: FormEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -37,6 +39,12 @@ const LoginComponent = ({ classname = "" }: ILoginComponentProps) => {
         setError(error.message);
       });
   };
+
+  useEffect(() => {
+    if (isLoggedIn.length > 0) {
+      navigate.push("/dashboard")
+    }
+  }, [isLoggedIn, navigate])
 
   return (
     <>

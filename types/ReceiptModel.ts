@@ -1,6 +1,6 @@
 export interface IReceipt {
 	company?: ICompanyData;
-	orderedTime?: string;
+	orderTime?: string;
 	transactionType?: 'SALE' | 'CONTACTLESS';
 	paymentMethod?: IPaymentData;
 	items?: ILineItem[];
