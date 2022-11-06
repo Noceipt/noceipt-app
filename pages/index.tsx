@@ -1,7 +1,7 @@
 import { Box, Heading, useColorMode } from "@chakra-ui/react";
 import { IconButton } from '@chakra-ui/button'
 import Head from "next/head";
-import CeiptList from "../components/CeiptList";
+import Search from "../components/Search";
 
 export default function Home() {
 
@@ -22,8 +22,9 @@ export default function Home() {
           { colorMode === 'light' ? <h1>{'Dark Mode'}</h1> : <h5>{'Light Mode'}</h5> }
         </IconButton>
       </Box>
-      <CeiptList />
-        
+      <Box>
+        <Search />
+      </Box>
       </main>
 
       <footer>{'Footer'}</footer>
