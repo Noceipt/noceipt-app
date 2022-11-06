@@ -15,11 +15,11 @@ const CeiptList = ({ classname = "", children }: ICeiptListProps) => {
           return (
             <>
               <Divider />
-              <CeiptListItem key={elem} />
+              <CeiptListItem wait={index} key={elem} />
             </>
           );
         }
-        return <CeiptListItem key={elem} />;
+        return <CeiptListItem wait={index} key={elem} />;
       })}
     </Flex>
   );
