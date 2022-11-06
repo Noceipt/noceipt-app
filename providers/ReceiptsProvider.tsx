@@ -1,24 +1,24 @@
-import { createContext, PropsWithChildren, useContext, useState } from 'react';
-import { Receipt } from '../types/ReceiptModel';
+import { createContext, PropsWithChildren, useContext, useState } from "react";
+import { IReceipt } from "../types/ReceiptModel";
 
 interface IReceiptContext {
-    receipts?: Receipt[];
-    setReceipts?: (prevState: []) => void;
+	receipts?: IReceipt[];
+	setReceipts?: (prevState: []) => void;
 }
 
 const ReceiptContext = createContext<IReceiptContext>({
-    receipts: [],
-    setReceipts: () => {},
+	receipts: [],
+	setReceipts: () => {},
 });
 
 export const ReceiptProvider = (props: PropsWithChildren<IReceiptContext>) => {
-    const [receipts, setReceipts] = useState<[]>([]);
-    
-    return (
-        <ReceiptContext.Provider value={{receipts, setReceipts}}>
-            {props.children}
-        </ReceiptContext.Provider>
-    );
+	const [receipts, setReceipts] = useState<[]>([]);
+
+	return (
+		<ReceiptContext.Provider value={{ receipts, setReceipts }}>
+			{props.children}
+		</ReceiptContext.Provider>
+	);
 };
 
 export const useReceiptsContext = () => useContext(ReceiptContext);
