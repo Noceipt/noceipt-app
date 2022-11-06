@@ -32,6 +32,7 @@ const Page = ({ children, title }: IPageProps) => {
 						marginTop={-8}
 						bgColor={bgColor}
 						as="main"
+						justifyContent="flex-start"
 					>
 						<Search />
 						{children}

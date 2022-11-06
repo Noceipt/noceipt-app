@@ -17,11 +17,6 @@ export default function Home() {
 			</Head>
 
 			<Page>
-				<Box
-					display="flex"
-					height={"50vh"}
-					flexDirection={"column"}
-				></Box>
 				<ReceiptComponent />
 			</Page>
 		</>

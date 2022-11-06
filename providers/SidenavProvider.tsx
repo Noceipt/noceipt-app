@@ -4,6 +4,7 @@ import {
 	PropsWithChildren,
 	SetStateAction,
 	useContext,
+	useEffect,
 	useState,
 } from "react";
 import Sidenav from "../components/Sidenav";
@@ -20,6 +21,9 @@ const SidenavContext = createContext<ISidenavContext>({
 
 const SidenavProvider = ({ children }: PropsWithChildren) => {
 	const [open, setOpen] = useState(false);
+	useEffect(() => {
+		document.body.style.overflow = open ? "hidden" : "auto";
+	}, [open]);
 	return (
 		<SidenavContext.Provider value={{ open, setOpen }}>
 			<div
@@ -29,8 +33,9 @@ const SidenavProvider = ({ children }: PropsWithChildren) => {
 					minHeight: "100%",
 					position: "absolute",
 					transition: "ease-in-out 0.15s left",
-					left: open ? "-75vw" : "0vw",
+					left: open ? "-240px" : "0vw",
 					boxShadow: "0 0 -5px 10px rgba(0,0,0, 0.5)",
+					overflow: open ? "hidden" : "auto",
 				}}
 			>
 				{children}
