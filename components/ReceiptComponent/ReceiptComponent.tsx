@@ -100,11 +100,12 @@ const ReceiptComponent = ({
                             <Divider variant={'dashed'} borderColor={'white'} borderWidth={'2px'}/>
                         </GridItem>
                         {receipt.items && receipt.items.map((item) => {
+                            const keyPrefix = item.itemName!.replace(' ', '_');
                             return (
                                 <>
-                                    <GridItem key={item.itemName + '_qty'} colSpan={1}>{item.numberOfItems}</GridItem>
-                                    <GridItem key={item.itemName + '_itm'} colSpan={3}>{item.itemName}</GridItem>
-                                    <GridItem key={item.itemName + '_amt'} textAlign={'end'} colSpan={1}>{item.itemValue}</GridItem>
+                                    <GridItem key={keyPrefix + '_qty'} colSpan={1}>{item.numberOfItems}</GridItem>
+                                    <GridItem key={keyPrefix + '_itm'} colSpan={3}>{item.itemName}</GridItem>
+                                    <GridItem key={keyPrefix + '_amt'} textAlign={'end'} colSpan={1}>{item.itemValue}</GridItem>
                                 </>
                             );
                         })}
