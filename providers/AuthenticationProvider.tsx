@@ -1,21 +1,23 @@
-import { createContext, PropsWithChildren, useContext, useState } from 'react';
+import { createContext, Dispatch, PropsWithChildren, SetStateAction, useContext, useState } from 'react';
 
 interface IAuthenticationContext {
-    isLoggedIn: boolean;
-    setLoggedIn: () => void;
-    error: string;
+  isLoggedIn: string;
+  setLoggedIn: Dispatch<SetStateAction<string>>;
+  error: string;
+  setError: Dispatch<SetStateAction<string>>;
 };
 
 const AuthenticationContext = createContext<IAuthenticationContext>({
-    isLoggedIn: false,
+    isLoggedIn: '',
     setLoggedIn: () => {},
     error: '',
+    setError: () => {},
 });
 
 export const AuthenticationProvider = (
     props: PropsWithChildren<IAuthenticationContext>
 ) => {
-    const [isLoggedIn, setLoggedIn] = useState<boolean>(false);
+    const [isLoggedIn, setLoggedIn] = useState<string>('');
     const [error, setError] = useState<string>('');
 
     

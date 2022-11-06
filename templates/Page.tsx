@@ -36,7 +36,6 @@ const Page = ({ children, title }: IPageProps) => {
 					>
 						{children}
 					</Box>
-					<footer>Footer bro</footer>
 				</>
 			</div>
 		</>

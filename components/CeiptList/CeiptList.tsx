@@ -16,7 +16,6 @@ const resolveTotalNumberOfItems = (items: ILineItem[] = []) =>
   }, 0);
 
 const CeiptList = ({ receiptList }: ICeiptListProps) => {
-  const { filteredReceipts } = useReceiptsContext();
   return (
     <Flex direction="column">
       {receiptList.map(({ company, orderedTime, items, total }, index) => {

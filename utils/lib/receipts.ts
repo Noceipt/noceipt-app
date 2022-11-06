@@ -1,5 +1,7 @@
 import { server } from "./server";
 
-const getLogin = async() => server.post('auth/login', {email, password})};
+export const getLogin = async (data: { email: string; password: string }) =>
+  server.post("auth/login", data);
 
-const getReceipts = async() => server.get('receipt');
+export const getReceipts = async (authToken: string) =>
+  server.get("receipt", { headers: { Authorization: `Bearer ${authToken}` } });
