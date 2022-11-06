@@ -1,0 +1,40 @@
+.receiptContainer {
+    margin: 0 3rem;
+}
+
+.receiptHeader {
+    margin-bottom: 3rem;
+}
+
+.receiptTime {
+    margin: 3rem 0;
+}
+
+.receiptItems {
+    margin-bottom: 3rem;
+}
+
+.receiptSubtotal,
+.receiptTax {
+    font-weight: 800;
+}
+
+.receiptTax {
+    margin-bottom: 3rem;
+}
+
+.receiptTotal {
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.receiptPaymentInfo {
+    font-weight: 800;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.receiptMemo {
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
