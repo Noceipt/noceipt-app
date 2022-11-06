@@ -5,6 +5,7 @@ import { FiAlignRight, FiChevronRight } from "react-icons/fi";
 import styles from "./Navbar.module.scss";
 import { useSidenav } from "../../providers/SidenavProvider";
 import { Box, useColorModeValue } from "@chakra-ui/react";
+import Link from "next/link";
 
 const Navbar = () => {
 	const image = useColorModeValue(logo, logoWhite);
@@ -13,7 +14,9 @@ const Navbar = () => {
 	return (
 		<div className={styles.NavSideContainer}>
 			<Box as="header" bgColor="green" className={styles.Navbar}>
-				<Image src={image} alt="Noceipt Logo" />
+				<Link href="/">
+					<Image src={image} alt="Noceipt Logo" />
+				</Link>
 				<button onClick={() => setOpen(!open)}>
 					{open ? (
 						<FiChevronRight size={22} />

@@ -1,14 +1,20 @@
 import {
 	Box,
 	Button,
-	IconButton,
 	Text,
 	useColorMode,
 	useColorModeValue,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { FiMoon, FiSun, FiSettings, FiBell, FiFileText } from "react-icons/fi";
+import {
+	FiMoon,
+	FiSun,
+	FiSettings,
+	FiBell,
+	FiFileText,
+	FiGrid,
+} from "react-icons/fi";
 import avatar from "../../assets/avatar.png";
 import nLogo from "../../assets/noceipt_black.svg";
 import nLogoWhite from "../../assets/noceipt.svg";
@@ -23,7 +29,12 @@ const Sidenav = () => {
 	const sideNavLogo = useColorModeValue(nLogo, nLogoWhite);
 	const userLinks = [
 		{
-			label: "General",
+			label: "Dashboard",
+			icon: <FiGrid />,
+			path: "/dashboard",
+		},
+		{
+			label: "Settings",
 			icon: <FiSettings />,
 			path: "/dashboard/settings",
 		},
