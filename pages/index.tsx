@@ -2,6 +2,7 @@ import { Box, Heading, useColorMode } from "@chakra-ui/react";
 import { IconButton } from '@chakra-ui/button'
 import Head from "next/head";
 import Search from "../components/Search";
+import ReceiptComponent from "../components/ReceiptComponent";
 
 export default function Home() {
 
@@ -25,6 +26,10 @@ export default function Home() {
       <Box>
         <Search />
       </Box>
+
+
+
+      <ReceiptComponent />
       </main>
 
       <footer>{'Footer'}</footer>
