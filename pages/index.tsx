@@ -19,23 +19,11 @@ export default function Home() {
 			</Head>
 
 			<Page>
-				<Box display="flex" height={"50vh"} flexDirection={"column"}>
-					<Heading>{"Noceipt"}</Heading>
-					<IconButton
-						mt={4}
-						aria-label="Toggle Mode"
-						onClick={toggleColorMode}
-					>
-						{colorMode === "light" ? (
-							<h1>{"Dark Mode"}</h1>
-						) : (
-							<h5>{"Light Mode"}</h5>
-						)}
-					</IconButton>
-				</Box>
-				<Box>
-					<Search />
-				</Box>
+				<Box
+					display="flex"
+					height={"50vh"}
+					flexDirection={"column"}
+				></Box>
 			</Page>
 		</>
 	);
