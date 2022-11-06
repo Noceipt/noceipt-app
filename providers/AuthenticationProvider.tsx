@@ -22,4 +22,4 @@ export const AuthenticationProvider = (
     );
 };
 
-export const useAuthenticationContext = useContext(AuthenticationContext);
+export const useAuthenticationContext = () => useContext(AuthenticationContext);

@@ -2,6 +2,7 @@ import { Box, Heading, useColorMode } from "@chakra-ui/react";
 import { IconButton } from "@chakra-ui/button";
 import Head from "next/head";
 import Page from "../templates/Page";
+import Search from "../components/Search";
 
 export default function Home() {
 	const { colorMode, toggleColorMode } = useColorMode();
@@ -32,9 +33,10 @@ export default function Home() {
 						)}
 					</IconButton>
 				</Box>
+				<Box>
+					<Search />
+				</Box>
 			</Page>
-
-			<footer>{"Footer"}</footer>
 		</>
 	);
 }
