@@ -2,7 +2,6 @@ import styles from './ReceiptComponent.module.scss';
 import { IReceipt } from '../../types/ReceiptModel';
 import { Box, Divider, Grid, GridItem, Heading } from '@chakra-ui/react';
 import { FiTarget } from 'react-icons/fi';
-import { format } from 'path';
 
 interface IReceiptComponentProps {
     classname?: string;
@@ -100,12 +99,12 @@ const ReceiptComponent = ({
                         <GridItem colSpan={5}>
                             <Divider variant={'dashed'} borderColor={'white'} borderWidth={'2px'}/>
                         </GridItem>
-                        {receipt.items && receipt.items.map((item, i) => {
+                        {receipt.items && receipt.items.map((item) => {
                             return (
                                 <>
-                                    <GridItem key={i + 'qty'} colSpan={1}>{item.numberOfItems}</GridItem>
-                                    <GridItem key={i + 'itm'} colSpan={3}>{item.itemName}</GridItem>
-                                    <GridItem key={i + 'amt'} textAlign={'end'} colSpan={1}>{item.itemValue}</GridItem>
+                                    <GridItem key={item.itemName + '_qty'} colSpan={1}>{item.numberOfItems}</GridItem>
+                                    <GridItem key={item.itemName + '_itm'} colSpan={3}>{item.itemName}</GridItem>
+                                    <GridItem key={item.itemName + '_amt'} textAlign={'end'} colSpan={1}>{item.itemValue}</GridItem>
                                 </>
                             );
                         })}
