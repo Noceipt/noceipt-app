@@ -20,10 +20,12 @@ import nLogo from "../../assets/noceipt_black.svg";
 import nLogoWhite from "../../assets/noceipt.svg";
 import { useUser } from "../../providers/UserProvider";
 import styles from "./Sidenav.module.scss";
+import { useSidenav } from "../../providers/SidenavProvider";
 
 const Sidenav = () => {
 	const navigate = useRouter();
-	const {user} = useUser();
+	const { open, setOpen } = useSidenav();
+	const { user } = useUser();
 	const { colorMode, toggleColorMode } = useColorMode();
 	const linkButtonBG = useColorModeValue("#C0EEA4", "#7AA361");
 	const sideNavLogo = useColorModeValue(nLogo, nLogoWhite);
@@ -103,11 +105,12 @@ const Sidenav = () => {
 									display="flex"
 									justifyContent="space-between"
 									alignItems="center"
-									onClick={() =>
+									onClick={() => {
 										link.onClick
 											? link.onClick()
-											: navigate.push(link.path)
-									}
+											: navigate.push(link.path);
+										setOpen(!open);
+									}}
 									_hover={{
 										backgroundColor:
 											colorMode === "light"
