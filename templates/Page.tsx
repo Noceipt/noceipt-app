@@ -2,8 +2,7 @@ import { ReactNode } from "react";
 import Head from "next/head";
 import styles from "../styles/PageTemplate.module.scss";
 import Navbar from "../components/Navbar";
-import { Box, useColorMode, useColorModeValue } from "@chakra-ui/react";
-import Search from "../components/Search";
+import { Box, useColorModeValue } from "@chakra-ui/react";
 
 export interface IPageProps {
 	children: ReactNode;
@@ -34,7 +33,6 @@ const Page = ({ children, title }: IPageProps) => {
 						as="main"
 						justifyContent="flex-start"
 					>
-						<Search />
 						{children}
 					</Box>
 					<footer>Footer bro</footer>
