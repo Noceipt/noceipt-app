@@ -3,6 +3,10 @@ import { useReceiptsContext } from "../../providers/ReceiptsProvider";
 import { ILineItem, IReceipt } from "../../types/ReceiptModel";
 import CeiptListItem from "../CeiptListItem";
 
+interface ICeiptListProps {
+  receiptList: IReceipt[]
+}
+
 const resolveTotalNumberOfItems = (items: ILineItem[] = []) =>
   items.reduce((acc, curr) => {
     if (curr) {
@@ -11,11 +15,11 @@ const resolveTotalNumberOfItems = (items: ILineItem[] = []) =>
     return acc;
   }, 0);
 
-const CeiptList = () => {
+const CeiptList = ({ receiptList }: ICeiptListProps) => {
   const { filteredReceipts } = useReceiptsContext();
   return (
     <Flex direction="column">
-      {filteredReceipts && filteredReceipts.map(({ company, orderedTime, items, total }, index) => {
+      {receiptList.map(({ company, orderedTime, items, total }, index) => {
         return (
           <>
             {index > 0 && <Divider />}
