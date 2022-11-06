@@ -6,7 +6,7 @@ import { FiSearch, FiX } from "react-icons/fi";
 
 interface ISearchProps {
     classname?: string;
-    callback?: () => void;
+    callback?: (searchInput: string) => void;
 }
 const Search = ({
     classname = '',
@@ -27,7 +27,7 @@ const Search = ({
 
     const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        callback();
+        callback(searchInput);
     }
 
     return (
