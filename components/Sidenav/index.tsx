@@ -23,7 +23,7 @@ import styles from "./Sidenav.module.scss";
 
 const Sidenav = () => {
 	const navigate = useRouter();
-	const user = useUser();
+	const {user} = useUser();
 	const { colorMode, toggleColorMode } = useColorMode();
 	const linkButtonBG = useColorModeValue("#C0EEA4", "#7AA361");
 	const sideNavLogo = useColorModeValue(nLogo, nLogoWhite);
@@ -84,7 +84,7 @@ const Sidenav = () => {
 					borderRadius={8}
 				>
 					<Text size="md" marginBottom={4}>
-						{user.email}
+						{user?.email}
 					</Text>
 					{userLinks.map((link, index) => {
 						return (
