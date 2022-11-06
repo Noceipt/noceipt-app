@@ -1,8 +1,8 @@
 import { createContext, PropsWithChildren, useContext, useState } from 'react';
 
 interface IAuthenticationContext {
-    token: string;
-    setToken: (prevState: string) => void;
+    token?: string;
+    setToken?: (prevState: string) => void;
 };
 
 const AuthenticationContext = createContext<IAuthenticationContext>({
