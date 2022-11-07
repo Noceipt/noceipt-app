@@ -6,12 +6,61 @@ import { Fragment } from "react";
 
 interface IReceiptComponentProps {
   classname?: string;
-  receipt: IReceipt;
 }
+
+const fakeAssData: IReceipt = {
+  company: {
+    name: 'McDonalds',
+    logo: 'img/path',
+    address: '123 McDonalds St',
+    website: 'McDonalds.com',
+  },
+  orderTime: new Date().toString(),
+  paymentMethod: {
+    cardNumber: '1234',
+    cardType: 'MASTERCARD',
+  },
+  items: [
+    {
+      numOfItems: 4,
+      name: 'cookies',
+      value: 11.11,
+      _id: '1'
+    },
+    {
+      numOfItems: 18,
+      name: 'gummy bears',
+      value: 99.45,
+      _id: '2'
+    },
+    {
+      numOfItems: 1,
+      name: 'stove pipe',
+      value: 99.77,
+      _id: '5'
+    },
+    {
+      numOfItems: 100000,
+      name: 'bananas',
+      value: 67.69,
+      _id: '6'
+    }
+  ],
+  subTotal: 1000000.99,
+  tax: 9999.99,
+  total: 1010000.98,
+  memos: [
+    'Return Policy',
+    'thanks for choosing us',
+    'you spent too much money'
+  ],
+  _id: "yes"
+};
 
 const ReceiptComponent = ({
   classname = "",
 }: IReceiptComponentProps) => {
+  const receipt = fakeAssData;
   const date = receipt!.orderTime ? new Date(receipt!.orderTime) : "";
   const formatedOrderDate = date
     ? [
