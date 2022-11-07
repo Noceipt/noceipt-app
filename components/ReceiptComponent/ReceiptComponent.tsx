@@ -3,6 +3,8 @@ import { IReceipt } from "../../types/ReceiptModel";
 import { Box, Divider, Grid, GridItem, Heading } from "@chakra-ui/react";
 import { FiTarget } from "react-icons/fi";
 import { Fragment } from "react";
+import Chewy from "../../assets/chewy.png";
+import Image from "next/image";
 
 interface IReceiptComponentProps {
   classname?: string;
@@ -10,10 +12,10 @@ interface IReceiptComponentProps {
 
 const fakeAssData: IReceipt = {
   company: {
-    name: 'McDonalds',
+    name: 'Chewy',
     logo: 'img/path',
-    address: '123 McDonalds St',
-    website: 'McDonalds.com',
+    address: '123 Chewy St',
+    website: 'Chewy.com',
   },
   orderTime: new Date().toString(),
   paymentMethod: {
@@ -86,7 +88,7 @@ const ReceiptComponent = ({
         justifyContent={"center"}
       >
         {/* TODO: change with img src */}
-        {receipt.company?.logo && <FiTarget size={100} />}
+        {receipt.company?.logo && <Image height={100} width={100} src={Chewy} alt="chewy" />}
         {receipt.company?.name && (
           <Heading as="h4" size="md">
             {receipt.company.name}
