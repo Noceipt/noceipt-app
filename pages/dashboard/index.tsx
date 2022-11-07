@@ -10,6 +10,7 @@ const Dashboard = () => {
   const { receipts, filteredReceipts, setReceipts } = useReceiptsContext();
   const { isLoggedIn } = useAuthenticationContext();
   const [isActive, setIsActive] = useState<boolean>(false);
+  const [isSingle, setIsSingle] = useState<boolean>(false);
 
   useEffect(() => {
     if (isLoggedIn!.length > 0) {
