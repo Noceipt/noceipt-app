@@ -11,7 +11,6 @@ interface IReceiptComponentProps {
 
 const ReceiptComponent = ({
   classname = "",
-  receipt,
 }: IReceiptComponentProps) => {
   const date = receipt!.orderTime ? new Date(receipt!.orderTime) : "";
   const formatedOrderDate = date
