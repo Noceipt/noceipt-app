@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { ICompanyData, IReceipt } from "../../types/ReceiptModel";
 import Robertos from "../../assets/Robertos.jpg";
+import { useRouter } from "next/router";
 
 interface ICeiptListItemProps {
   wait: number;
@@ -30,6 +31,7 @@ const CeiptListItem = ({
   orderedTime,
 }: ICeiptListItemProps) => {
   const [open, setOpen] = useState<boolean>(false);
+  const navigate = useRouter();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -41,7 +43,9 @@ const CeiptListItem = ({
 
   return (
     <SlideFade offsetY="16px" in={open}>
-      <Flex flexGrow={1} marginY="8px">
+      <Flex flexGrow={1} marginY="8px" onClick={() => {
+        navigate.push('/dashboard/receipt')
+      }}>
         {companyLogo ? (
           <Image src={Robertos} width={40} height={40} alt="icon" />
         ) : (
