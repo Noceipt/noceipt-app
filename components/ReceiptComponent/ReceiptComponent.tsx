@@ -3,6 +3,8 @@ import { IReceipt } from "../../types/ReceiptModel";
 import { Box, Divider, Grid, GridItem, Heading } from "@chakra-ui/react";
 import { FiTarget } from "react-icons/fi";
 import { Fragment } from "react";
+import MCD from "../../assets/mcd.png";
+import Image from "next/image";
 
 interface IReceiptComponentProps {
   classname?: string;
@@ -84,7 +86,9 @@ const ReceiptComponent = ({ classname = "" }: IReceiptComponentProps) => {
         justifyContent={"center"}
       >
         {/* TODO: change with img src */}
-        {receipt.company?.logo && <FiTarget size={100} />}
+        {receipt.company?.logo && (
+          <Image height={100} width={100} src={MCD} alt="mcdonald's" />
+        )}
         {receipt.company?.name && (
           <Heading as="h4" size="md">
             {receipt.company.name}
