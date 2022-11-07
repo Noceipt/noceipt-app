@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FiShoppingCart } from "react-icons/fi";
 import { ICompanyData, IReceipt } from "../../types/ReceiptModel";
-import Robertos from "../../assets/Robertos.jpg";
+import mcd from "../../assets/mcd.png";
 import { useRouter } from "next/router";
 
 interface ICeiptListItemProps {
@@ -51,7 +51,7 @@ const CeiptListItem = ({
         }}
       >
         {companyLogo ? (
-          <Image src={Robertos} width={40} height={40} alt="icon" />
+          <Image src={mcd} width={40} height={40} alt="icon" />
         ) : (
           <FiShoppingCart size={40} />
         )}
